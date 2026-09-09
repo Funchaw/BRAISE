@@ -1,80 +1,73 @@
-# Premier prototype UE5 — définition de portée
+# Premier prototype UE5 — définition de portée (v2, post-fusion Megabonk)
 
-> Rappel : ce document définit *quoi* prototyper, pas *comment coder*.
-> Aucune implémentation ne démarre avant validation de ce périmètre.
-> Priorité absolue : **GAMEPLAY > GRAPHISMES**.
+> Ce document remplace la v1 (shmup pur à défilement) suite au pivot vers
+> une structure survivors-like en zone semi-ouverte (voir
+> `docs/01-concepts/braise-gdd-v2.md`). Toujours : **GAMEPLAY > GRAPHISMES**,
+> formes simples, aucun asset final.
 
 ## Objectif du prototype
 
-Valider en jouable, avec des formes simples (cubes/capsules/plans), que le
-noyau de sensations de *BRAISE* fonctionne : maîtrise aérienne précise,
-risque/récompense de la jauge de chaleur, satisfaction du tir/destruction,
-premier mini-boss lisible.
-
-Le prototype ne doit **pas** chercher à prouver la direction artistique,
-le scénario, ou le contenu — seulement le gameplay.
+Valider, jouable, que la boucle centrale fonctionne : déplacement libre +
+jauge de chaleur (risque/récompense) + montée en puissance par XP/
+compétences aléatoires + pression d'une horde de Cendreux croissante +
+un mini-boss lisible.
 
 ## Contenu du prototype (périmètre fermé)
 
-1. **Joueur**
-   - déplacement libre 2D (plan XY ou XZ selon l'axe de scroll retenu),
-     avec inertie légère (accélération/décélération, pas de "collé au stick") ;
-   - vitesse joueur nettement supérieure à la vitesse de défilement.
-2. **Tir**
-   - tir principal automatique à cadence fixe, projectile à vitesse modérée ;
-   - jauge de chaleur qui monte en tirant, tir plus puissant à jauge haute,
-     "surchauffe" temporaire au-delà d'un seuil (fenêtre de vulnérabilité).
-3. **Ennemis (2 archétypes suffisent)**
-   - un ennemi à trajectoire simple (ligne/sinusoïde) sans tir ;
-   - un ennemi qui tire, avec un "tell" visuel avant l'attaque (fiche
-     mécanique 3).
-4. **Projectiles & collisions**
-   - projectiles joueur et ennemi, détection de collision, dégâts appliqués.
-5. **Destruction**
-   - mort d'ennemi = petit effet (placeholder Niagara basique), pas besoin
-     de particules définitives.
-6. **Score**
-   - compteur simple à l'écran, points par ennemi détruit.
-7. **Premier power-up**
-   - un seul, ramassable, qui modifie un paramètre existant (ex : cadence
-     de tir ou seuil de surchauffe) — pas de deuxième noyau complet à ce
-     stade.
-8. **Premier mini-boss**
-   - une forme simple (grande capsule/cube) avec 2 phases minimum :
-     - phase 1 : pattern d'attaque simple + point faible visible ;
-     - phase 2 (déclenchée à un seuil de vie) : pattern légèrement modifié,
-       pour valider la mécanique "corruption visible" de la fiche 5 (même
-       en placeholder : changement de couleur suffit à ce stade).
+1. **Zone de jeu** : une seule arène semi-ouverte, plane, taille modeste
+   (assez grande pour courir, pas un "monde ouvert" au sens plein — un
+   rectangle/cercle de terrain suffit).
+2. **Joueur (Tison)** : déplacement libre à la manette/clavier (8+
+   directions), pas de défilement forcé, vitesse et inertie légère
+   comme définies en fiche mécanique 2.
+3. **Tir** : automatique vers l'ennemi le plus proche ou dirigé (à
+   trancher au test — commencer par automatique, plus proche de l'ADN
+   survivors-like), alimenté par la jauge de chaleur (fiche mécanique 1
+   adaptée : charge en tirant, tir renforcé à jauge haute, seuil de
+   surchauffe).
+4. **Cendreux (2 archétypes suffisent au prototype)** :
+   - un **Braise-éteint** (fonce en ligne droite, pression de nombre) ;
+   - un **Cendre-vive** (garde ses distances, tire, avec tell visuel).
+5. **Directeur de horde minimal** : spawn des Cendreux à fréquence
+   croissante avec le temps (une simple courbe suffit, pas besoin du
+   système complet biome par biome).
+6. **XP & montée de niveau** : Éclats de Braise lâchés à la mort d'un
+   Cendreux, magnétisme simple vers le joueur, seuil d'XP déclenchant un
+   choix de **3 compétences** parmi un pool restreint (3-5 compétences
+   suffisent au prototype, une par catégorie du document
+   `docs/04-progression/xp-et-competences.md`).
+7. **Un mini-boss** : forme simple avec 2 phases (seuil de vie), reprend
+   la mécanique "corruption visible" (fiche mécanique 5) même en
+   placeholder (changement de couleur/matériau suffit).
+8. **Score/temps de survie** : compteur simple à l'écran (Cendreux
+   détruits + temps écoulé).
 
 ## Explicitement hors périmètre du prototype
 
-- systèmes de noyaux/formes multiples (fiche 1 complète) ;
-- narration, dialogues, cinématiques ;
-- musique/son définitifs (un placeholder minimal suffit) ;
-- menus, options, sauvegarde ;
-- plusieurs niveaux — un seul segment de test (2-3 minutes de jeu) suffit ;
-- direction artistique finale.
+- plusieurs biomes (un seul suffit) ;
+- Codex/bestiaire consultable ;
+- progression méta entre runs (Braisier, déblocages) ;
+- narration, cinématiques ;
+- musique/son définitifs (placeholder minimal) ;
+- menus/options avancés, sauvegarde ;
+- direction artistique finale ;
+- pool complet de compétences (voir document dédié — 3-5 suffisent ici).
 
 ## Critères de validation du prototype
 
-Le prototype sera jugé réussi si, en jouant :
+- le déplacement libre est agréable sans réglage fin ;
+- la jauge de chaleur crée un vrai dilemme perceptible ;
+- la montée de niveau et le choix de compétence sont clairs et
+  gratifiants, même avec un pool restreint ;
+- la pression de la horde croissante se sent "juste" (ni trop lente ni
+  écrasante) sur une session de 3-5 minutes ;
+- le mini-boss est lisible sans texte explicatif.
 
-- le déplacement est immédiatement agréable sans réglage fin (feel de
-  base correct avant tuning) ;
-- la jauge de chaleur crée un vrai dilemme perceptible ("est-ce que je
-  pousse le tir ou je me protège ?") ;
-- détruire un ennemi est satisfaisant même avec des formes simples ;
-- le mini-boss est lisible : on comprend son pattern et son point faible
-  sans explication textuelle.
+## Environnement technique
 
-Si un de ces points échoue, on itère sur le prototype avant d'aller plus
-loin — pas de passage à la production tant que ces 4 critères ne sont pas
-validés en test.
-
-## Ce que ce document ne couvre pas encore
-
-- structure exacte des classes/Blueprints (viendra avec le lancement du
-  développement, section "Architecture UE5" du plan global) ;
-- choix Blueprint vs C++ par système (décidé système par système, au
-  moment de l'implémenter) ;
-- configuration technique cible (FPS, résolution, config mini/recommandée).
+Aucun moteur graphique n'étant disponible dans cette session cloud, le
+squelette de projet UE5 (structure de dossiers, classes C++ de base) est
+livré dans [`../../unreal/`](../../unreal/) — voir
+[`../../unreal/README.md`](../../unreal/README.md) pour l'ouvrir et le
+tester dans un UE5 installé localement, et pour la liste des éléments à
+créer dans l'éditeur (Blueprints dérivés, niveau de test, Input Actions).
