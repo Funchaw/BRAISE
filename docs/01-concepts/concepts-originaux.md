@@ -34,10 +34,11 @@ fragments de cette même infection — devenant peu à peu ce qu'il combat.
 
 ---
 
-## Concept B — *BRAISE*
+## Concept B — *BRAISE* ✅ CONCEPT RETENU
 
-> Titre choisi en écho au nom du présent dépôt — à valider ou renommer
-> librement, ce n'est qu'un point de départ.
+> Validé le 2026-09-09. C'est la direction officielle du projet à partir
+> de maintenant — les prochains documents (game design détaillé,
+> prototype, niveaux) s'appuient sur ce concept.
 
 **Pitch** : Dans un monde où le soleil s'est éteint, les derniers foyers de
 vie s'organisent autour de "forges vivantes" qui produisent la dernière
@@ -141,5 +142,11 @@ premier projet commercial :
 Le concept A reste un excellent plan B si vous préférez un ton plus dur/
 horrifique. Le concept C est à garder en réserve pour un projet futur plus
 ambitieux (ou comme mode/niveau bonus une fois Braise établi).
+
+## Décision
+
+**Concept retenu : BRAISE.** Necroveil et Hollow Choir sont archivés comme
+pistes de secours / projets futurs, pas supprimés — au cas où le
+prototype révèle un problème fondamental avec la direction Braise.
 
 ➡️ Suite : [`../02-prototype/prototype-ue5.md`](../02-prototype/prototype-ue5.md)

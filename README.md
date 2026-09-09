@@ -7,9 +7,10 @@ personnages, son propre code et sa propre identité commerciale.
 
 ## Statut
 
-**Phase 0 — Analyse & concept.** Aucun code n'a encore été écrit ; le
-projet en est à la validation du concept et du gameplay avant tout
-développement UE5 (voir "Méthode de travail" plus bas).
+**Phase 1 — Concept validé, game design en cours.** Le concept *BRAISE*
+a été retenu. Aucun code n'a encore été écrit ; prochaine étape : cadrer
+précisément le premier prototype jouable avant tout développement UE5
+(voir "Méthode de travail" plus bas).
 
 ## Règle d'or
 
@@ -45,7 +46,7 @@ objectif → tâches → production → test → retour → correction → valid
 → étape suivante. Le code ne démarre qu'une fois le concept et le
 gameplay validés par le test du prototype.
 
-## Concept sélectionné (à valider)
+## Concept retenu ✅
 
 **BRAISE** — dans un monde où le soleil s'est éteint, le joueur incarne un
 esprit-braise né des dernières forges vivantes, seule source de lumière et
@@ -53,20 +54,21 @@ de chaleur à l'écran, dans un combat aérien contre les entités de cendre
 qui veulent l'éteindre. Mécanique centrale : jauge de chaleur risque/
 récompense (charger le tir attire le danger).
 
-Détails complets et alternatives dans
-[`docs/01-concepts/concepts-originaux.md`](./docs/01-concepts/concepts-originaux.md).
+Détails complets dans
+[`docs/01-concepts/concepts-originaux.md`](./docs/01-concepts/concepts-originaux.md)
+(*Necroveil* et *Hollow Choir* restent archivés comme pistes de secours).
 
 ---
 
 ## PROCHAINE ACTION
 
-**Valider le concept *BRAISE*** (ou choisir une des deux alternatives —
-*Necroveil* / *Hollow Choir* — dans
-[`docs/01-concepts/concepts-originaux.md`](./docs/01-concepts/concepts-originaux.md)) :
-dites-moi si on part sur ce concept tel quel, si vous voulez l'ajuster, ou
-si vous préférez un autre concept. Une fois le concept validé, la tâche
-concrète suivante sera de **construire le premier prototype UE5** décrit
-dans [`docs/02-prototype/prototype-ue5.md`](./docs/02-prototype/prototype-ue5.md)
+Avant de construire le prototype UE5, quelques décisions concrètes de
+game design restent ouvertes (voir la question posée dans le chat) :
+nom du protagoniste, boucle de gameplay seconde par seconde, et réglages
+précis de la jauge de chaleur. Une fois ces points tranchés, la tâche
+suivante sera de **construire le squelette du premier prototype UE5**
+décrit dans
+[`docs/02-prototype/prototype-ue5.md`](./docs/02-prototype/prototype-ue5.md)
 (joueur, tir, jauge de chaleur, 2 ennemis, 1 power-up, 1 mini-boss, formes
 simples) — toujours sans graphismes définitifs, pour tester uniquement le
 game feel.
