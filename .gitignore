@@ -1,0 +1,16 @@
+# Fichiers de référence Amiga (matériel d'analyse uniquement — jamais commités,
+# jamais transformés en assets). Déposez vos fichiers ici pour analyse locale.
+/reference/*
+!/reference/.gitkeep
+!/reference/README.md
+
+# UE5 / build artifacts (à activer quand le projet UE5 sera initialisé)
+Binaries/
+Intermediate/
+Saved/
+DerivedDataCache/
+*.sln
+.vs/
+
+# Divers
+.DS_Store
