@@ -1,6 +1,7 @@
 #include "Enemies/CendreuxBase.h"
 #include "Enemies/CendreuxDefinition.h"
 #include "Pickups/EmberShard.h"
+#include "GameFramework/CharacterMovementComponent.h"
 
 ACendreuxBase::ACendreuxBase()
 {
