@@ -2,9 +2,12 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
+#include "Enemies/CendreuxDefinition.h"
 #include "CendreuxBase.generated.h"
 
-class UCendreuxDefinition;
+// UCendreuxDefinition est inclus (pas seulement declare en avant) car
+// GetHealth01() ci-dessous est inline et dereference Definition->MaxHealth
+// -- il faut le type complet, pas juste sa declaration.
 class ACendreuxBase;
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnCendreuxHealthChanged, float, Health01);

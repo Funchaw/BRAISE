@@ -6,6 +6,12 @@ public class Braise : ModuleRules
 	{
 		PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
 
+		// Module a plat (pas de sous-dossiers Public/Private) : sans cette
+		// ligne, UBT n'ajoute pas la racine du module au chemin d'inclusion,
+		// et des includes comme "Player/BraiseCharacter.h" (ecrits relatifs
+		// a Source/Braise/) ne se resolvent pas -- erreur C1083.
+		PublicIncludePaths.Add(ModuleDirectory);
+
 		PublicDependencyModuleNames.AddRange(new string[]
 		{
 			"Core",
